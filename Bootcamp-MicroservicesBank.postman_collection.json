@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "63f2d505-7a47-4993-96e9-93b4fbd84390",
+		"name": "Bootcamp-MicroservicesBank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CustomerPerson CRUD",
+			"item": [
+				{
+					"name": "FindAllCustomerPersons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8010/person/find-all",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"person",
+								"find-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCustomerPerson",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8010/person/delete/6280fd2f5f48812e053aec7c",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"person",
+								"delete",
+								"6280fd2f5f48812e053aec7c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCustomerPerson",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"firstName\": \"alina\",\r\n        \"lastName\": \"reyes\",\r\n        \"idDocument\": \"123456789\",\r\n        \"productPerson\": {\r\n            \"personalCredit\": {\r\n                \"accountingBalance\": \"58\",\r\n                \"availableBalance\": \"86\"\r\n            },\r\n            \"savingAccount\": {\r\n                \"accountingBalance\": \"5200\",\r\n                \"maintenance\": \"0.5\",\r\n                \"movementLimit\": \"30\"\r\n            },\r\n            \"currentAccount\": {\r\n                \"accountingBalance\": \"804\",\r\n                \"maintenance\": \"7\"\r\n            },\r\n            \"fixedTermAccounts\": [\r\n                {\r\n                    \"accountingBalance\": \"789\",\r\n                    \"movementDay\": \"24\"\r\n                }\r\n            ]\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8010/person/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"person",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCustomerPerson",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": \"628039f613305c5079f53b59\",\r\n        \"firstName\": \"omar antonio\",\r\n        \"lastName\": \"lazo\",\r\n        \"idDocument\": \"123456789\",\r\n        \"productPerson\": {\r\n            \"personalCredit\": {\r\n                \"accountingBalance\": \"100\",\r\n                \"availableBalance\": \"100\"\r\n            },\r\n            \"savingAccount\": {\r\n                \"accountingBalance\": \"100\",\r\n                \"maintenance\": \"2\",\r\n                \"movementLimit\": \"2\"\r\n            },\r\n            \"currentAccount\": {\r\n                \"accountingBalance\": \"150\",\r\n                \"maintenance\": \"5\"\r\n            },\r\n            \"fixedTermAccounts\": [\r\n                {\r\n                    \"accountingBalance\": \"133\",\r\n                    \"movementDay\": \"01\"\r\n                }\r\n            ]\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8010/person/update/628039a613305c5079f53b57",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"person",
+								"update",
+								"628039a613305c5079f53b57"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByIdCustomerPerson",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8010/person/find-by-id/6280ef3b13305c5079f53b6c",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"person",
+								"find-by-id",
+								"6280ef3b13305c5079f53b6c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CustomerEnterprise CRUD",
+			"item": [
+				{
+					"name": "FindAllCustomerEnterprise",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8010/enterprise/find-all",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"enterprise",
+								"find-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByIdCustomerEnterprise",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8010/enterprise/find-by-id/6280fd2f5f48812e053aec7d",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"enterprise",
+								"find-by-id",
+								"6280fd2f5f48812e053aec7d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCustomerEnterprise",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"6280fd2f5f48812e053aec7d\",\r\n    \"ownerNames\": [\r\n        \"alina\",\r\n        \"jenny\"\r\n    ],\r\n    \"authorizedSigners\": [\r\n        \"firma01\"\r\n    ],\r\n    \"rucDocument\": \"123456789\",\r\n    \"productEnterprise\": {\r\n        \"businessCredits\": [\r\n            {\r\n                \"accountingBalance\": \"524\",\r\n                \"availableBalance\": \"543\"\r\n            },\r\n            {\r\n                \"accountingBalance\": \"524\",\r\n                \"availableBalance\": \"543\"\r\n            }\r\n        ],\r\n        \"currentAccounts\": null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8010/enterprise/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"enterprise",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCustomerEnterprise",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ownerNames\": [\r\n        \"isabel\",\r\n        \"joseph\"\r\n    ],\r\n    \"authorizedSigners\": [\r\n        \"firma01\",\r\n        \"firma02\",\r\n        \"firma03\"\r\n    ],\r\n    \"rucDocument\": \"987654321\",\r\n    \"productEnterprise\": {\r\n        \"businessCredits\": [\r\n            {\r\n                \"accountingBalance\": \"852\",\r\n                \"availableBalance\": \"456\"\r\n            },\r\n            {\r\n                \"accountingBalance\": \"48\",\r\n                \"availableBalance\": \"0\"\r\n            }\r\n        ],\r\n        \"currentAccounts\": null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8010/enterprise/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"enterprise",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCustomerEnterprise",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8010/enterprise/delete/6280fd2f5f48812e053aec7d",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"enterprise",
+								"delete",
+								"6280fd2f5f48812e053aec7d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CreateCustomerPerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"firstName\": \"alina\",\r\n        \"lastName\": \"reyes s\",\r\n        \"idDocument\": \"123456789\",\r\n        \"productPerson\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8010/person/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"person",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateProductPerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCustomerPerson\":\"62819497868d1e68fc27413a\",\r\n    \"personalCredit\": {\r\n                \"accountingBalance\": \"666\",\r\n                \"availableBalance\": \"100\"\r\n            },\r\n            \"savingAccount\": {\r\n                \"accountingBalance\": \"100\",\r\n                \"maintenance\": \"2\",\r\n                \"movementLimit\": \"2\"\r\n            },\r\n            \"currentAccount\": {\r\n                \"accountingBalance\": \"150\",\r\n                \"maintenance\": \"5\"\r\n            },\r\n            \"fixedTermAccounts\": [\r\n                {\r\n                    \"accountingBalance\": \"133\",\r\n                    \"movementDay\": \"01\"\r\n                }\r\n            ]\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8020/product-person/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8020",
+					"path": [
+						"product-person",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindCustomerPersonWithMicroservices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8010/person/find-by-id/6281b1f2645d9f2b0dbdb814",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"person",
+						"find-by-id",
+						"6281b1f2645d9f2b0dbdb814"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
