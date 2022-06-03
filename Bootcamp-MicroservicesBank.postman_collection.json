@@ -2,11 +2,12 @@
 	"info": {
 		"_postman_id": "63f2d505-7a47-4993-96e9-93b4fbd84390",
 		"name": "Bootcamp-MicroservicesBank",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12671580"
 	},
 	"item": [
 		{
-			"name": "CustomerPerson CRUD",
+			"name": "CustomerPerson",
 			"item": [
 				{
 					"name": "FindAllCustomerPersons",
@@ -14,14 +15,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8010/person/find-all",
+							"raw": "localhost:8010/person/findAll",
 							"host": [
 								"localhost"
 							],
 							"port": "8010",
 							"path": [
 								"person",
-								"find-all"
+								"findAll"
 							]
 						}
 					},
@@ -110,14 +111,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8010/person/find-by-id/6280ef3b13305c5079f53b6c",
+							"raw": "localhost:8010/person/findById/6280ef3b13305c5079f53b6c",
 							"host": [
 								"localhost"
 							],
 							"port": "8010",
 							"path": [
 								"person",
-								"find-by-id",
+								"findById",
 								"6280ef3b13305c5079f53b6c"
 							]
 						}
@@ -127,7 +128,7 @@
 			]
 		},
 		{
-			"name": "CustomerEnterprise CRUD",
+			"name": "CustomerEnterprise",
 			"item": [
 				{
 					"name": "FindAllCustomerEnterprise",
@@ -135,14 +136,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8010/enterprise/find-all",
+							"raw": "localhost:8010/enterprise/findAll",
 							"host": [
 								"localhost"
 							],
 							"port": "8010",
 							"path": [
 								"enterprise",
-								"find-all"
+								"findAll"
 							]
 						}
 					},
@@ -154,14 +155,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8010/enterprise/find-by-id/6280fd2f5f48812e053aec7d",
+							"raw": "localhost:8010/enterprise/findById/6280fd2f5f48812e053aec7d",
 							"host": [
 								"localhost"
 							],
 							"port": "8010",
 							"path": [
 								"enterprise",
-								"find-by-id",
+								"findById",
 								"6280fd2f5f48812e053aec7d"
 							]
 						}
@@ -247,80 +248,577 @@
 			]
 		},
 		{
-			"name": "CreateCustomerPerson",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n        \"firstName\": \"alina\",\r\n        \"lastName\": \"reyes s\",\r\n        \"idDocument\": \"123456789\",\r\n        \"productPerson\": null\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "BusinessCredit",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8020/businessCredit/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8020",
+							"path": [
+								"businessCredit",
+								"findAll"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8010/person/create",
-					"host": [
-						"localhost"
-					],
-					"port": "8010",
-					"path": [
-						"person",
-						"create"
-					]
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8020/businessCredit/findById/",
+							"host": [
+								"localhost"
+							],
+							"port": "8020",
+							"path": [
+								"businessCredit",
+								"findById",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCustomerEnterprise\": \"62897e7c79b67b011135273a\",\r\n    \"accountingBalance\": \"100\",\r\n    \"availableBalance\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8020/businessCredit/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8020",
+							"path": [
+								"businessCredit",
+								"save"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "CreateProductPerson",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"idCustomerPerson\":\"62819497868d1e68fc27413a\",\r\n    \"personalCredit\": {\r\n                \"accountingBalance\": \"666\",\r\n                \"availableBalance\": \"100\"\r\n            },\r\n            \"savingAccount\": {\r\n                \"accountingBalance\": \"100\",\r\n                \"maintenance\": \"2\",\r\n                \"movementLimit\": \"2\"\r\n            },\r\n            \"currentAccount\": {\r\n                \"accountingBalance\": \"150\",\r\n                \"maintenance\": \"5\"\r\n            },\r\n            \"fixedTermAccounts\": [\r\n                {\r\n                    \"accountingBalance\": \"133\",\r\n                    \"movementDay\": \"01\"\r\n                }\r\n            ]\r\n        }",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "CurrentAccount",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8021/currentAccount/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"currentAccount",
+								"findAll"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8020/product-person/create",
-					"host": [
-						"localhost"
-					],
-					"port": "8020",
-					"path": [
-						"product-person",
-						"create"
-					]
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCustomer\": \"6289728079b67b0111352734\",\r\n    \"typeCustomer\": \"customerPerson\",\r\n    \"accountingBalance\": \"3000\",\r\n    \"maintenance\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8021/currentAccount/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"currentAccount",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByIdCustomer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8021/currentAccount/findByIdCustomer/b1",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"currentAccount",
+								"findByIdCustomer",
+								"b1"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "FindCustomerPersonWithMicroservices",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8010/person/find-by-id/6281b1f2645d9f2b0dbdb814",
-					"host": [
-						"localhost"
-					],
-					"port": "8010",
-					"path": [
-						"person",
-						"find-by-id",
-						"6281b1f2645d9f2b0dbdb814"
-					]
+			"name": "FixedTermAccount",
+			"item": []
+		},
+		{
+			"name": "PersonalCredit",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCustomerPerson\": \"6289978397f22f0f8d0715c4\",\r\n    \"accountingBalance\": \"800\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8023/personalCredit/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8023",
+							"path": [
+								"personalCredit",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8023/personalCredit/findAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8023",
+							"path": [
+								"personalCredit",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8023/personalCredit/findById/",
+							"host": [
+								"localhost"
+							],
+							"port": "8023",
+							"path": [
+								"personalCredit",
+								"findById",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"629912f0a445ae3083b866ba\",\r\n    \"idCustomerPerson\": \"6289978397f22f0f8d0715c4\",\r\n    \"accountingBalance\": \"100\",\r\n    \"availableBalance\": \"3\",\r\n    \"debt\": \"79\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8023/personalCredit/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8023",
+							"path": [
+								"personalCredit",
+								"update"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "SavingAccount",
+			"item": [
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8024/savingAccount/findById/62868fb83356fe365de12c48",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8024",
+							"path": [
+								"savingAccount",
+								"findById",
+								"62868fb83356fe365de12c48"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"6287fb7646f26a3d730e1cb9\",\r\n    \"idCustomerPerson\": \"b1\",\r\n    \"accountingBalance\": \"12\",\r\n    \"maintenance\": \"2\",\r\n    \"movementLimit\": \"3\",\r\n    \"profile\": \"none\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8024/savingAccount/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8024",
+							"path": [
+								"savingAccount",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8090/savingAccount/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"savingAccount",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TransactionEnterprise",
+			"item": []
+		},
+		{
+			"name": "TransactionPerson",
+			"item": [
+				{
+					"name": "SavingAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCustomerPerson\": \"b1\",\r\n    \"idProduct\": \"629906c46e8d0459ea7765c0\",\r\n    \"productName\": \"SavingAccount\",\r\n    \"typeTransaction\": \"deposit\",\r\n    \"amount\": \"15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8026/transactionPerson/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8026",
+							"path": [
+								"transactionPerson",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PersonalCredit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCustomerPerson\": \"b1\",\r\n    \"idProduct\": \"629912f0a445ae3083b866ba\",\r\n    \"productName\": \"PersonalCredit\",\r\n    \"typeTransaction\": \"consumption\",\r\n    \"amount\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8026/transactionPerson/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8026",
+							"path": [
+								"transactionPerson",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://lim-4wcv533.usersad.everis.int:58479/transactionPerson/findAll",
+							"protocol": "http",
+							"host": [
+								"lim-4wcv533",
+								"usersad",
+								"everis",
+								"int"
+							],
+							"port": "58479",
+							"path": [
+								"transactionPerson",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByProductNameAndCreatedAtBetween",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\": \"SavingAccount\",\r\n    \"from\": \"24-05-2022\",\r\n    \"to\": \"28-05-2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "lim-4wcv533.usersad.everis.int:60002/transactionPerson/findByProductNameAndCreatedAtBetween",
+							"host": [
+								"lim-4wcv533",
+								"usersad",
+								"everis",
+								"int"
+							],
+							"port": "60002",
+							"path": [
+								"transactionPerson",
+								"findByProductNameAndCreatedAtBetween"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "CreateProductPerson",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCustomerPerson\":\"628400e66d1d1432d5e9af30\",\r\n    \"personalCredit\": {\r\n                \"accountingBalance\": \"00\",\r\n                \"availableBalance\": \"100\"\r\n            },\r\n            \"currentAccount\": {\r\n                \"accountingBalance\": \"150\",\r\n                \"maintenance\": \"5\"\r\n            },\r\n            \"fixedTermAccounts\": [\r\n                {\r\n                    \"accountingBalance\": \"133\",\r\n                    \"movementDay\": \"01\"\r\n                },\r\n                {\r\n                    \"accountingBalance\": \"159\",\r\n                    \"movementDay\": \"99\"\r\n                }\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8020/product-person/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8020",
+							"path": [
+								"product-person",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OpenAccounts",
+			"item": [
+				{
+					"name": "CurrentAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCustomer\": \"6289728079b67b0111352734\",\r\n    \"accountingBalance\": \"3000\",\r\n    \"maintenance\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8026/transactionOpenAccount/CurrentAccount",
+							"host": [
+								"localhost"
+							],
+							"port": "8026",
+							"path": [
+								"transactionOpenAccount",
+								"CurrentAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SavingAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCustomerPerson\":\"b1\",\r\n    \"accountingBalance\":\"100\",\r\n    \"maintenance\":\"2\",\r\n    \"movementLimit\":\"13254\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8026/transactionOpenAccount/SavingAccount",
+							"host": [
+								"localhost"
+							],
+							"port": "8026",
+							"path": [
+								"transactionOpenAccount",
+								"SavingAccount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ConfigServer",
+			"item": [
+				{
+					"name": "localhost:8888/service-transaction-person/dev",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/service-transaction-person/dev",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"service-transaction-person",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
