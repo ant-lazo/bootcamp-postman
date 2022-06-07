@@ -55,7 +55,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"firstName\": \"alina\",\r\n        \"lastName\": \"reyes\",\r\n        \"idDocument\": \"123456789\",\r\n        \"productPerson\": {\r\n            \"personalCredit\": {\r\n                \"accountingBalance\": \"58\",\r\n                \"availableBalance\": \"86\"\r\n            },\r\n            \"savingAccount\": {\r\n                \"accountingBalance\": \"5200\",\r\n                \"maintenance\": \"0.5\",\r\n                \"movementLimit\": \"30\"\r\n            },\r\n            \"currentAccount\": {\r\n                \"accountingBalance\": \"804\",\r\n                \"maintenance\": \"7\"\r\n            },\r\n            \"fixedTermAccounts\": [\r\n                {\r\n                    \"accountingBalance\": \"789\",\r\n                    \"movementDay\": \"24\"\r\n                }\r\n            ]\r\n        }\r\n    }",
+							"raw": "{\r\n    \"firstName\": \"alina\",\r\n    \"lastName\": \"reyes\",\r\n    \"idDocument\": \"12345678\",\r\n    \"cellphone\": \"123456789\",\r\n    \"email\":\"nnn@gmail.com\",\r\n    \"productPerson\": null\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -122,6 +122,14 @@
 								"6280ef3b13305c5079f53b6c"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByIdDocument",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
@@ -813,6 +821,58 @@
 							"path": [
 								"service-transaction-person",
 								"dev"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bootcoin",
+			"item": [
+				{
+					"name": "BootCoin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8050/rateBootcoin/active",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"rateBootcoin",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send request transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"123456789\",\r\n    \"typeTransaction\":\"selling\",\r\n    \"amount\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8026/customer/transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8026",
+							"path": [
+								"customer",
+								"transaction"
 							]
 						}
 					},
